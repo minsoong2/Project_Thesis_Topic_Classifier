@@ -150,5 +150,5 @@ for i in range(count):
 print(paper_count)
 save_dictionary(paper_count, "x_labels_with_y.txt")
 f.close()
-
+# histogram
 plot_histogram(SC_codes, 'ScienceClass_Code')
