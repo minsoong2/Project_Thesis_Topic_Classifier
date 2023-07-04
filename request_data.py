@@ -91,7 +91,7 @@ for i in range(count):
             continue
         if str(SC_3.get('code')) == '':
             continue
-            ####
+            ####1
         num = -5
         # 국가과학기술분류코드 논문당 3개 -> 같은 논문데이터 삽입X
         if paper_count[SC_1.get('code')] < num or paper_count[SC_2.get('code')] < num or paper_count[SC_3.get('code')] < num:
