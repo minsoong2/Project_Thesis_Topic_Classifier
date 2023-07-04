@@ -27,9 +27,9 @@ def save_dictionary(dictionary, file_path):
             file.write(f"{key} {value}\n")
 
 
-client = mc('mongodb://10.100.54.134:27017/')
-db = client['my_database']
-collection = db['my_collection']
+# client = mc('mongodb://10.100.54.134:27017/')
+# db = client['my_database']
+# collection = db['my_collection']
 
 # 텍스트 파일에서 국가과학기술표준분류체계와 개수 가져오기
 with open('x_labels_with_y.txt', 'r') as file:
@@ -39,7 +39,6 @@ with open('x_labels_with_y.txt', 'r') as file:
 paper_count = defaultdict(int)
 for paper, count in code_counts:
     paper_count[paper] = int(count)
-    print(type(paper))
 
 # API KEY
 my_key = "ly64hh7wurkv221i4x41"
@@ -60,9 +59,8 @@ count /= 1000
 count = int(count) + 1
 SC_codes = [] # histogram ScienceCode1,2,3
 # SC2_codes = [] # histogram ScienceCode2
-# SC3_codes = [] # histogram ScienceCode3
+# SC3_codes = [] # histogram ScienceCode3\
 
-f = open(f"{find}.txt", "w", encoding='utf-8')
 for i in range(count):
     # api 호출
     call = requests.get(endpoint)
@@ -109,13 +107,7 @@ for i in range(count):
         paper_count[SC_3.get('code')] -= 1
 
         cnt = cnt + 1
-        f.write(remove_html(Y_.text) + '\n')
-        f.write(remove_html(RT_.text) + '\n')
-        f.write(remove_html(JN_.text) + '\n')
-        f.write(remove_html(A_F.text) + '\n')
-        f.write(SC_1.get('code') + '\n')
-        f.write(SC_2.get('code') + '\n')
-        f.write(SC_3.get('code') + '\n\n')
+        print(RT_.text)
         print(str(SC_1.get('code')))
         print(str(SC_2.get('code')))
         print(str(SC_3.get('code')))
@@ -140,7 +132,7 @@ for i in range(count):
             'ScienceClass2': ScienceClass2,
             'ScienceClass3': ScienceClass3
         }
-        collection.insert_one(data)
+        # collection.insert_one(data)
 
     print(f'Page: {i + 1}')
     print(endpoint)
@@ -149,6 +141,5 @@ for i in range(count):
 
 print(paper_count)
 save_dictionary(paper_count, "x_labels_with_y.txt")
-f.close()
 # histogram
 plot_histogram(SC_codes, 'ScienceClass_Code')
