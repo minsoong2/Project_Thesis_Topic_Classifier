@@ -4,7 +4,7 @@ client = mc('mongodb://10.100.54.134:27017/')
 db = client['my_database']
 collection = db['my_collection']
 
-f = open('비정형 데이터.txt', 'r', encoding='utf-8')
+f = open('~~~.txt', 'r', encoding='utf-8')
 content = f.readlines()
 i = 0
 while True:
