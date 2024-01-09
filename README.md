@@ -33,6 +33,6 @@ The processed data is then stored in a MongoDB database, ensuring that the class
 
 ### Prerequisites
 
-- Python 3.x
+- Python 3.8
 - MongoDB
 - Relevant Python libraries: `pymongo`, `matplotlib`, etc.
