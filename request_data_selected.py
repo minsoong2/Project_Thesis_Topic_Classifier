@@ -27,7 +27,7 @@ def save_dictionary(dictionary, file_path):
             file.write(f"{key} {value}\n")
 
 
-client = mc('mongodb://10.100.54.134:27017/')
+client = mc('mongodb://10.100.54.132:27017/')
 db = client['my_database']
 collection = db['my_collection_selected_data']
 

@@ -59,7 +59,7 @@ count /= 1000
 count = int(count) + 1
 SC_codes = [] # histogram ScienceCode1,2,3
 # SC2_codes = [] # histogram ScienceCode2
-# SC3_codes = [] # histogram ScienceCode3\
+# SC3_codes = [] # histogram ScienceCode3
 
 for i in range(count):
     # api 호출
